@@ -2,4 +2,4 @@
 
 ### Desenho simplificado da aplicação
 
-![desenho API](desenho-API.PNG)
+![desenho API](desenho-API.png)
