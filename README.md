@@ -1,2 +1,5 @@
-# mentoria-loja-construcao
-API CRUD de produtos de uma loja de construção.
+# API produtos loja de construção
+
+### Desenho simplificado da aplicação
+
+![desenho API](desenho-API.PNG)
