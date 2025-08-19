@@ -1,0 +1,5 @@
+br\com\loja\construcao\ConstrucaoApplication.class
+br\com\loja\construcao\model\Produto.class
+br\com\loja\construcao\controller\ProdutoController.class
+br\com\loja\construcao\repository\ProdutoRepository.class
+br\com\loja\construcao\service\ProdutoService.class
