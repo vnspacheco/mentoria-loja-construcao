@@ -1,5 +1,5 @@
 # Usando JDK 17
-FROM eclipse-temurin:17-jdk-alpineg
+FROM eclipse-temurin:17-jdk-alpine
 
 # Copia o JAR gerado pelo Maven
 COPY target/*.jar app.jar
