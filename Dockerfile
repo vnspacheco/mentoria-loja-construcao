@@ -1,5 +1,6 @@
 # Usando JDK 17
 FROM eclipse-temurin:17-jdk-alpine
+WORKDIR /mentoria-loja-construcao
 
 # Copia o JAR gerado pelo Maven
 COPY target/*.jar app.jar
