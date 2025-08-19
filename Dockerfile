@@ -1,12 +1,23 @@
-# Usando JDK 17
-FROM eclipse-temurin:17-jdk-alpine
+# Etapa 1: Build da aplicação
+FROM maven:3.9.4-eclipse-temurin-17 AS builder
+
 WORKDIR /app
 
-# Copia o JAR gerado pelo Maven
-COPY target/construcao-1.0.0.jar app.jar
+# Copia o pom.xml e baixa dependências
+COPY pom.xml .
+RUN mvn dependency:go-offline
 
-# Expõe a porta do Spring Boot (default 8080)
+# Copia o código e compila
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+# Etapa 2: Runtime (imagem enxuta só com JRE)
+FROM eclipse-temurin:17-jre-alpine
+
+WORKDIR /app
+
+# Copia apenas o JAR gerado
+COPY --from=builder /app/target/construcao-1.0.0.jar app.jar
+
 EXPOSE 8080
-
-# Comando para iniciar a aplicação
 ENTRYPOINT ["java", "-jar", "app.jar"]
